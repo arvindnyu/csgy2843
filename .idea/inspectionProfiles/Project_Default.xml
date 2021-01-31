@@ -1,0 +1,17 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="reference_monitor_an3391_003.*" />
+          <option value="reference_monitor_an3391_02.*" />
+          <option value="reference_monitor_an3391_03.*" />
+          <option value="test_case_001.*" />
+          <option value="reference_monitor_an3391_05.*" />
+          <option value="reference_monitor_an3391_06.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
