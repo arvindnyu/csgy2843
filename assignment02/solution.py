@@ -37,7 +37,7 @@ def webServer(port=13331):
                 outputdata = "HTTP/1.1 404 Not Found\r\n\r\n"
                 outputdata = outputdata + "<html>404 Not Found</html>\n"
             else:
-                outputdata = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
+                outputdata = "HTTP/1.1 200 OK\r\n\r\n"
                 f = open(filename[1:])
                 filedata = f.read()
                 f.close()
