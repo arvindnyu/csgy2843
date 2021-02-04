@@ -2,7 +2,7 @@
 from socket import *
 import sys # In order to terminate the program
 
-debug = True
+debug = False
 
 def log(message):
     if debug:
