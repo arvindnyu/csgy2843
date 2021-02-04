@@ -33,19 +33,6 @@ def webServer(port=13331):
             filename = message.split()[1]
             log("filename:" + str(filename))
 
-            if "helloworld.html" not in str(filename):
-                outputdata = "HTTP/1.1 404 Not Found\r\n\r\n"
-                outputdata = outputdata + "<html>404 Not Found</html>\n"
-            else:
-                outputdata = "HTTP/1.1 200 OK\r\n\r\n"
-                f = open(filename[1:])
-                filedata = f.read()
-                f.close()
-                log("filedata:" + filedata)
-                outputdata = outputdata + filedata + "\n"
-
-            log("outputdata:" + outputdata)
-
             # outputdata = #Fill in start     #Fill in end
             #
             # #Send one HTTP header line into socket
@@ -53,6 +40,26 @@ def webServer(port=13331):
             #
             # #Fill in end
             #
+
+            if "helloworld.html" not in str(filename):
+                outputdata = "HTTP/1.1 404 Not Found\n"
+                log("outputdata:" + outputdata)
+                for i in range(0, len(outputdata)):
+                    connectionSocket.send(outputdata[i].encode())
+                outputdata = "\n<html>404 Not Found</html>\n"
+            else:
+                outputdata = "HTTP/1.1 200 OK\n"
+                log("outputdata:" + outputdata)
+                for i in range(0, len(outputdata)):
+                    connectionSocket.send(outputdata[i].encode())
+                f = open(filename[1:])
+                filedata = f.read()
+                f.close()
+                log("filedata:" + filedata)
+                outputdata = "\n" + filedata + "\n"
+
+            log("outputdata:" + outputdata)
+
             #Send the content of the requested file to the client
             for i in range(0, len(outputdata)):
                 connectionSocket.send(outputdata[i].encode())
@@ -70,6 +77,7 @@ def webServer(port=13331):
             #Fill in start
 
             #Fill in end
+            connectionSocket.close()
 
     serverSocket.close()
     sys.exit()  # Terminate the program after sending the corresponding data
