@@ -1,5 +1,6 @@
-import assignment04.solution
+import assignment05.solution
+import solution
 
 if __name__ == "__main__":
-    #assignment03.solution.smtp_client(25,'smtp.nyu.edu')
-    assignment04.solution.ping("google.co.il")
+    #assignment05.solution.get_route("google.com")
+    solution.get_route("google.com")
